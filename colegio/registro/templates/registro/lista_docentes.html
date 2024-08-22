@@ -1,0 +1,12 @@
+{% extends 'registro/padre.html' %}
+
+{% block title %}Lista de Docentes{% endblock %}
+
+{% block content %}
+<h2>Lista de Docentes</h2>
+<ul>
+    {% for docente in docentes %}
+        <li>{{ docente.nombre }} {{ docente.apellido }} - {{ docente.email }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

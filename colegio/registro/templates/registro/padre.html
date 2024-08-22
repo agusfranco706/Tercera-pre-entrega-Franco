@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Institución{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Mi Institución</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'alta_docente' %}">Alta de Docente</a></li>
+                <li><a href="{% url 'lista_docentes' %}">Lista de Docentes</a></li>
+                <li><a href="{% url 'buscar_docente' %}">Buscar Docente</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        {% block content %}
+        <!-- Contenido específico de cada página -->
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Mi Institución</p>
+    </footer>
+</body>
+</html>

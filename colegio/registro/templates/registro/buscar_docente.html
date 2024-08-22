@@ -1,0 +1,22 @@
+{% extends 'registro/padre.html' %}
+
+{% block title %}Buscar Docente{% endblock %}
+
+{% block content %}
+<h2>Buscar Docente</h2>
+<form method="GET" action="{% url 'buscar_docente' %}">
+    <input type="text" name="nombre" placeholder="Nombre del docente">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if docentes %}
+    <h3>Resultados de la búsqueda:</h3>
+    <ul>
+        {% for docente in docentes %}
+            <li>{{ docente.nombre }} {{ docente.apellido }} - {{ docente.email }}</li>
+        {% endfor %}
+    </ul>
+{% elif nombre %}
+    <p>No se encontraron docentes con el nombre "{{ nombre }}"</p>
+{% endif %}
+{% endblock %}
