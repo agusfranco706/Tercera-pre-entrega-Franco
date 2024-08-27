@@ -7,18 +7,19 @@ def alta_docente(request):
         form = DocenteForm(request.POST)
         if form.is_valid():
             form.save()
-            return
-        redirect('lista_docentes')
+            return redirect('lista_docentes')
+        
     else:
         form = DocenteForm()
         return render(request, 'registro/alta_docente.html', {'form': form})
     
 def buscar_docente(request):
-    if request.method == 'POST':
-        nombre = request.POST.get('nombre')
+    nombre = request.GET.get('nombre')
+    if nombre:
         docentes = Docente.objects.filter(nombre__icontains=nombre)
-        return render(request, 'registro/buscar_docente.html', {'docentes': docentes})
+        return render(request,'registro/buscar_docente.html',{'docentes': docentes, 'nombre': nombre})
     return render(request, 'registro/buscar_docente.html')
+
 
 def lista_docentes(request):
     docentes = Docente.objects.all()
