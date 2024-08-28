@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Docente, Curso, Clase
+from .models import Docente, Curso, Estudiante
 
 @admin.register(Docente)
 class DocenteAdmin(admin.ModelAdmin):
@@ -12,7 +12,7 @@ class CursoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'descripcion')
     search_fields = ('nombre',)
 
-@admin.register(Clase)
+@admin.register(Estudiante)
 class ClaseAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'curso')
     search_fields = ('nombre',)
